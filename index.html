@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <p id="items"></p>
+
+    <script type="text/javascript" src="/tabletop.js"></script>
+    <script type="text/javascript">
+      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRoWA6c1BfzODxSDq1CXfclyCcJiygmLe9Tyy9b_bXMdghjDMahAPOvAwVUSSChYAf6gEYdwYNfpHw9/pubhtml?gid=1823661378&single=true';
+
+      function init() {
+        Tabletop.init( { key: public_spreadsheet_url,
+                         callback: showInfo,
+                         simpleSheet: true } );
+      }
+
+      window.addEventListener('DOMContentLoaded', init)
+
+      function showInfo(data) {
+        // data comes through as a simple array since simpleSheet is turned on
+        alert("Successfully processed " + data.length + " rows!")
+        document.getElementById("items").innerHTML = "<strong>Items:</strong> " + [ data[0].Name, data[1].Name, data[2].Name ].join(", ");
+        console.log(data);
+      }
+
+      document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");        
+    </script>
+  </body>
+</html>
