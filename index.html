@@ -20,7 +20,8 @@
 
       window.addEventListener('DOMContentLoaded', init)
 
-      function showInfo(data) {
+      function showInfo(results) {
+        var data = results.data
         // data comes through as a simple array since simpleSheet is turned on
         alert("Successfully processed " + data.length + " rows!")
         document.getElementById("items").innerHTML = "<strong>Items:</strong> " + [ data[0].Name, data[1].Name ].join(", ");
