@@ -26,7 +26,8 @@
         // data comes through as a simple array since simpleSheet is turned on
         document.getElementById("items").appendChild("<strong>Items:</strong>");
         for(var i = 0 ; i < data.length ; i++){
-          document.getElementById("items").appendChild(data[i]["Timestamp"] +" , " data[i]["What do you prefer?"]);
+          document.getElementById("items").appendChild("<p>i</p>");
+          document.getElementById("items").appendChild("<p>"+data[i]["Timestamp"] +" , " data[i]["What do you prefer?"]+"</p>");
         }
       }
 
