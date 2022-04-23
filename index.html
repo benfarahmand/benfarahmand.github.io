@@ -8,7 +8,7 @@
 
     <script type="text/javascript" src="/papaparse.min.js"></script>
     <script type="text/javascript">
-      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRoWA6c1BfzODxSDq1CXfclyCcJiygmLe9Tyy9b_bXMdghjDMahAPOvAwVUSSChYAf6gEYdwYNfpHw9/pubhtml';
+      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRoWA6c1BfzODxSDq1CXfclyCcJiygmLe9Tyy9b_bXMdghjDMahAPOvAwVUSSChYAf6gEYdwYNfpHw9/pub?output=csv';
 
       function init() {
         Papa.parse(public_spreadsheet_url, {
@@ -29,7 +29,7 @@
         console.log(data);
       }
 
-      document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");        
+      // document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");        
     </script>
   </body>
 </html>
