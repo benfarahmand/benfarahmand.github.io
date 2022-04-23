@@ -8,7 +8,7 @@
 
     <script type="text/javascript" src="/papaparse.min.js"></script>
     <script type="text/javascript">
-      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRoWA6c1BfzODxSDq1CXfclyCcJiygmLe9Tyy9b_bXMdghjDMahAPOvAwVUSSChYAf6gEYdwYNfpHw9/pubhtml?gid=1823661378&single=true';
+      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRoWA6c1BfzODxSDq1CXfclyCcJiygmLe9Tyy9b_bXMdghjDMahAPOvAwVUSSChYAf6gEYdwYNfpHw9/pubhtml';
 
       function init() {
         Papa.parse(public_spreadsheet_url, {
@@ -23,7 +23,8 @@
       function showInfo(results) {
         var data = results.data
         // data comes through as a simple array since simpleSheet is turned on
-        alert("Successfully processed " + data.length + " rows!")
+        console.log(results);
+        console.log("Successfully processed " + data.length + " rows!");
         document.getElementById("items").innerHTML = "<strong>Items:</strong> " + [ data[0].Name, data[1].Name ].join(", ");
         console.log(data);
       }
