@@ -1,39 +1,14 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="./leaflet/leaflet.css">
+    <script type="text/javascript" src="./leaflet/leaflet.js"></script>
+    <script type="text/javascript" src="./js/papaparse.min.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+  </head>
   <body>
-    <h1>The Survey</h1>
-    <p>Fill out the survey.</p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc868i1EgA6pfKOBnPoFTZ8m05YmupML_Ba0kcCvQiDXVcMJg/viewform?embedded=true" width="640" height="574" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    <p id="items"></p>
-
-    <script type="text/javascript" src="/papaparse.min.js"></script>
-    <script type="text/javascript">
-      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRoWA6c1BfzODxSDq1CXfclyCcJiygmLe9Tyy9b_bXMdghjDMahAPOvAwVUSSChYAf6gEYdwYNfpHw9/pub?output=csv';
-
-      function init() {
-        Papa.parse(public_spreadsheet_url, {
-          download: true,
-          header: true,
-          complete: showInfo
-        })
-      }
-
-      window.addEventListener('DOMContentLoaded', init)
-
-      function showInfo(results) {
-        var data = results.data
-        console.log("Successfully processed " + data.length + " rows!");
-        console.log(data);
-        // data comes through as a simple array since simpleSheet is turned on
-        var element = document.getElementById("items");
-        element.innerHTML = "<strong>Survey Responses:</strong>";
-        for(var i = 0 ; i < data.length ; i++){
-          console.log(data[i]);
-          element.innerHTML = element.innerHTML + ("<p>"+data[i]["Timestamp"] +" , " + data[i]["What do you prefer?"]+"</p>");
-        }
-      }
-
-      // document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");        
-    </script>
+    <h1>Geotagged Poetry</h1>
+    <div id="map" style="height:500px;"></div>
+    <div><p>To Do: Insert link to the survey.</p></div>
   </body>
 </html>
