@@ -1,3 +1,1 @@
-# Google Sheet as Database
-
-Figuring out how to use Google Sheets as a database for a website.
+Getting data from a public Google Sheets to visualize in Leaflet
