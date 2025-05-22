@@ -1,14 +1,137 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="./leaflet/leaflet.css">
-    <script type="text/javascript" src="./leaflet/leaflet.js"></script>
-    <script type="text/javascript" src="./js/papaparse.min.js"></script>
-    <script type="text/javascript" src="./js/app.js"></script>
-  </head>
-  <body>
-    <h1>Geotagged Poetry</h1>
-    <div id="map" style="height:500px;"></div>
-    <div><p>To Do: Insert link to the survey.</p></div>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple QA for Manufacturers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .highlight {
+      color: #e63946;
+      font-weight: bold;
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.25rem;
+      margin-top: 2rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .testimonial {
+      background: #fdfdfd;
+      border-left: 4px solid #e63946;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #eee;
+      font-size: 0.9rem;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #c92c3a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Own Your Factory's QA Data</h1>
+    <p>Real-time insights built for manufacturers on a budget. No subscriptions. No bloat.</p>
+  </header>
+
+  <div>
+    <h2>What It Is</h2>
+    <p>This compact, plug-and-play QA monitoring kit uses a Raspberry Pi, industrial sensor inputs, and a customizable dashboard to deliver <strong>real-time factory line analytics</strong> without subscription fees or unnecessary complexity.</p>
+
+    <h2>Why It’s Better</h2>
+    <ul>
+      <li><strong>No subscription required.</strong> You own the hardware, forever.</li>
+      <li><strong>Custom-fit.</strong> Each unit is tailored to your exact sensor and signal specs. Out of the box, the system supports Keyence PZ-G62CB and PR-G41CBL sensors via a tested M8 adapter connected to the Raspberry Pi's GPIO.</li>
+      <li><strong>Instant visibility.</strong> View widget-by-widget analytics on a built-in screen.</li>
+      <li><strong>REST API or Local Dashboard.</strong> Connect to your internal systems via REST or log in directly over LAN.</li>
+      <li><strong>Simpler than RedZone.</strong> No bloated software, no IT overhead.</li>
+    </ul>
+
+    
+    <h2>Technical Specs</h2>
+    <ul>
+      <li><strong>Processor:</strong> Raspberry Pi 4 or 5 (quad-core, 1.5–2.4GHz)</li>
+      <li><strong>Display:</strong> 10” touchscreen</li>
+      <li><strong>Connectivity:</strong> Wi-Fi / Ethernet (PoE optional), LAN-hosted or REST API</li>
+      <li><strong>Keyence Sensor Adapter:</strong> 12V logic-compatible input via M8 connector + voltage divider or optoisolator.</li>
+      <li><strong>Data Access:</strong> REST endpoint (JSON format) or local dashboard over LAN depending on your needs</li>
+      <li><strong>Storage:</strong> microSD (default) with SSD upgrade available</li>
+    </ul>
+
+    <h2>Compatibility & Integration</h2>
+    <ul>
+      <li><strong>Default Sensor Support:</strong> Keyence PZ-G62CB, PR-G41CBL (NPN, 12V logic)</li>
+      <li><strong>Signal Types:</strong> NPN or 12V digital logic with included adapter</li>
+      <li><strong>Connector:</strong> M8 4-pin with included custom wiring adapter</li>
+    </ul>
+
+  
+    <h2>Options</h2>
+    <p>Available add-ons include:</p>
+    <ul>
+      <li>Multi-color beacon light for line status</li>
+      <li>Power-over-Ethernet integration</li>
+      <li>Custom dashboards and remote access setup</li>
+    </ul>
+
+    <h2>Testimonial</h2>
+    <div class="testimonial">
+      <p>“Coming Soon...”</p>
+      <p><strong>— Someone, Some Place</strong></p>
+    </div>
+
+    <h2>Interested?</h2>
+    <p>Fill out the form below to get in touch. We'll follow up with pricing, availability, and customization options.</p>
+
+    <!-- Embedded Google Form -->
+    <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 M3ntor LLC — Built for manufacturers who want control, not complexity.</p>
+  </footer>
+</body>
 </html>

@@ -1,1 +1,1 @@
-Getting data from a public Google Sheets to visualize in Leaflet
+landing page for factory qa device
