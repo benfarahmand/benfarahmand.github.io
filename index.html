@@ -3,152 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple QA for Manufacturers</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Real-Time Production Counter for Manufacturers</title>
+  <meta
+    name="description"
+    content="Factory-ready production counter for manufacturers still tracking boxes by hand. One line per device, live counts, local dashboard, and one-time purchase."
+  >
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'IBM Plex Sans', sans-serif;
+      font-family: "IBM Plex Sans", sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 0;
       background-color: #ffffff;
-      color: #333;
+      color: #222;
     }
+
     header {
       background-color: #f5f5f5;
+      text-align: center;
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      margin: 0 0 1rem;
       color: #111;
-      box-shadow: none;
-      padding: 3rem 2rem;
-      text-align: center;
     }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-    }
-    .highlight {
-      color: #e63946;
-      font-weight: bold;
-    }
-    h2 {
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.25rem;
-      margin-top: 2.5rem;
-      font-weight: 600;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    .testimonial {
-      background: #fafafa;
-      border-left: 4px solid #999;
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      font-style: italic;
-      border-radius: 4px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #f5f5f5;
-      font-size: 0.9rem;
+
+    header p {
+      max-width: 700px;
+      margin: 0.75rem auto;
+      font-size: 1.1rem;
       color: #555;
     }
-    button {
-      padding: 0.75rem 1.5rem;
-      background-color: #111;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
     }
-    button:hover {
+
+    h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #e2e2e2;
+      font-size: 1.45rem;
+      color: #111;
+    }
+
+    h3 {
+      margin-bottom: 0.6rem;
+      color: #111;
+    }
+
+    p {
+      margin: 0.8rem 0;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.4rem;
+    }
+
+    li {
+      margin-bottom: 0.55rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #111;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .button:hover {
       background-color: #333;
     }
-  </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EBB6P7T19K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-EBB6P7T19K');
-</script>
+    .note {
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    .note p:first-child,
+    .placeholder p:first-child {
+      margin-top: 0;
+    }
+
+    .note p:last-child,
+    .placeholder p:last-child {
+      margin-bottom: 0;
+    }
+
+    .placeholder {
+      background: #fafafa;
+      border: 1px dashed #bdbdbd;
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin: 1rem 0;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .card {
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 1rem 1.1rem;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: #555;
+    }
+
+    .muted {
+      color: #666;
+    }
+
+    details {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .faq-item p {
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background-color: #f5f5f5;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 1.5rem 1rem 2.5rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1 style="font-weight: 600; font-size: 2.5rem;">Own Your Factory's QA Data</h1>
-    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Real-time insights built for manufacturers on a budget. <br> No subscriptions. No bloat.</p>
+    <h1>Stop Counting Boxes</h1>
+    <p>Real-time production counts. No subscriptions. Runs on your network.</p>
+    <a href="#demo" class="button">Request a Demo</a>
   </header>
 
   <div class="container">
-    <h2>What It Is</h2>
-    <p>This compact, plug-and-play QA monitoring kit uses a Raspberry Pi, industrial sensor inputs, and a customizable dashboard to deliver <strong>real-time factory line analytics</strong> without subscription fees or unnecessary complexity.</p>
-
-    <h2>Why It’s Better</h2>
-    <ul>
-      <li><strong>No subscription required.</strong> You own the hardware, forever.</li>
-      <li><strong>Custom-fit.</strong> Each unit is tailored to your exact sensor and signal specs. Out of the box, the system supports Keyence PZ-G62CB and PR-G41CBL sensors via a tested M8 adapter connected to the Raspberry Pi's GPIO.</li>
-      <li><strong>Instant visibility.</strong> View widget-by-widget analytics on a built-in screen.</li>
-      <li><strong>REST API or Local Dashboard.</strong> Connect to your internal systems via REST or log in directly over LAN.</li>
-      <li><strong>Simpler than the market leader.</strong> No bloated software, no IT overhead.</li>
-    </ul>
-
-    <h2>Technical Specs</h2>
-    <ul>
-      <li><strong>Computing Platform:</strong> Raspberry Pi 5</li>
-      <li><strong>Display:</strong> 10” touchscreen</li>
-      <li><strong>Keyence Sensor Adapter:</strong> 12V logic-compatible input via M8 connector + voltage divider or optoisolator.</li>
-      <li><strong>Data Access:</strong> REST endpoint (JSON format) for pre-existing system integrations or a local dashboard hosted on the Raspberry Pi over LAN depending on your needs</li>
-      <li><strong>Connectivity:</strong> Wi-Fi and Ethernet</li>
-      <li><strong>Storage:</strong> microSD (default) with SSD upgrade available</li>
-    </ul>
-
-    <h2>Compatibility & Integration</h2>
-    <ul>
-      <li><strong>Default Sensor Support:</strong> Keyence PZ-G62CB, PR-G41CBL (NPN, 12V logic)</li>
-      <li><strong>Signal Types:</strong> NPN or 12V digital logic with included adapter</li>
-      <li><strong>Connector:</strong> M8 4-pin with included custom wiring adapter</li>
-    </ul>
-
-    <h2>Optional Add-ons:</h2>
-    <ul>
-      <li>White-labeled branding (your logo on the enclosure and on the dashboard)</li>
-      <li>Additional sensor support based on your needs</li>
-      <li>Multi-color beacon light for quick visibility of line status from a distance</li>
-      <li>Power-over-Ethernet integration</li>
-      <li>Custom dashboards and remote access setup</li>
-    </ul>
-
-    <h2>See It in Action</h2>
-    <p>Here’s a quick look at how the system works. The video shows the enclosure in action, the real-time dashboard update, and a simulated factory signal.</p>
-    <iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" title="QA Demo" frameborder="0" allowfullscreen style="margin: 2rem 0;"></iframe>
-    
-    <h2>Gallery</h2>
-    <!-- <p>Photos of the enclosure, wiring, dashboard, and in-situ use.</p> -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-      <img src="placeholder1.jpg" alt="QA Unit Front View" style="width: 100%; border-radius: 4px;">
-      <!-- <img src="placeholder2.jpg" alt="Dashboard Screenshot" style="width: 100%; border-radius: 4px;"> -->
-      <img src="placeholder2.jpg" alt="Mounted in Factory" style="width: 100%; border-radius: 4px;">
-    </div>
-    
-
-    <div class="testimonial">
-      <p>"Testimonial Coming Soon...”</p>
-      <p><strong>— Someone, Some Place</strong></p>
+    <!-- Replace this block with your YouTube embed when the demo video is ready. -->
+    <div class="placeholder" id="video-placeholder">
+      <p><strong>Demo video slot</strong></p>
+      <p class="muted">Show the device mounted on a real production line.</p>
     </div>
 
-    <h2>Get in Touch</h2>
-    <p>If you're looking for a no-nonsense QA system you can own and adapt, this is for you. Reach out using the form below — let's talk about how this can work for your line.</p>
+    <h2>The Problem</h2>
+    <p>
+      Many factory owners and floor managers still rely on hand counts, paper notes, or rough estimates to know
+      whether a line is on pace. By the time the final number is written down, the shift is over
+      and there is no chance to correct the problem. For example, a line may be running below target pace for hours without anyone noticing until the shift ends.</p>
 
-    <!-- Embedded Google Form -->
-    <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <h2>What This Device Does</h2>
+    <div class="card-grid">
+      <article class="card">
+        <h3>Live production counts</h3>
+        <p>Counts update immediately from the connected sensor.</p>
+      </article>
+      <article class="card">
+        <h3>On-screen and network visibility</h3>
+        <p>View the line on the built-in screen or from devices on your local network.</p>
+      </article>
+      <article class="card">
+        <h3>Line status beacon</h3>
+        <p>See line status from farther away without standing at the screen.</p>
+      </article>
+      <article class="card">
+        <h3>Simple data access</h3>
+        <p>Export CSV data or connect to a lightweight API if needed.</p>
+      </article>
+      <article class="card">
+        <h3>Reliable sensor input</h3>
+        <p>Designed for consistent pulse detection from standard industrial sensors used on production lines.</p>
+      </article>
+    </div>
+
+    <h2>Standard Package</h2>
+    <p>
+      A self-contained industrial IoT device for one production line.
+    </p>
+    <div class="card-grid">
+      <article class="card">
+        <h3>Controller and screen</h3>
+        <p>Industrial IoT controller with 10-inch touchscreen.</p>
+      </article>
+      <article class="card">
+        <h3>Sensor connection</h3>
+        <p>M8 sensor connection for supported sensor hookups.</p>
+      </article>
+      <article class="card">
+        <h3>Line status beacon</h3>
+        <p>Included for quick visual status on the floor.</p>
+      </article>
+      <article class="card">
+        <h3>Mounting hardware</h3>
+        <p>Mounting arm and enclosure included.</p>
+      </article>
+      <article class="card">
+        <h3>Power and storage</h3>
+        <p>PoE with integrated SSD storage.</p>
+      </article>
+      <article class="card">
+        <h3>Preconfigured software</h3>
+        <p>Ready for on-screen and network access.</p>
+      </article>
+    </div>
+    <details>
+      <summary>View technical specs</summary>
+      <ul>
+        <li><strong>Controller:</strong> Raspberry Pi 5-based industrial IoT controller</li>
+        <li><strong>Display:</strong> 10-inch touchscreen</li>
+        <li><strong>Power and storage:</strong> PoE HAT with integrated SSD storage</li>
+        <li><strong>Networking:</strong> Ethernet is recommended because it simplifies power and networking with one cable. Wi-Fi is also available if needed.</li>
+        <li><strong>Data access:</strong> Built-in screen, network access, CSV export, and REST API</li>
+        <li><strong>Sensor connection:</strong> M8 connector for supported sensor hookups.</li>
+        <li><strong>Tested sensors:</strong> Keyence PZ-G62CB and PR-G41CBL</li>
+        <li><strong>Environment:</strong> Designed for typical factory floor environments including dust, vibration, and continuous operation</li>
+        <li><strong>Deployment model:</strong> One device per line, running locally on your network</li>
+      </ul>
+    </details>
+
+    <h2>Pricing</h2>
+    <p>Typical systems range from $X-$Y depending on configuration and mounting requirements.</p>
+    <p>Final pricing is confirmed after a short demo and review of your line setup.</p>
+
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Request a demo:</strong> we talk through how the line is counted today and whether the standard package fits</li>
+      <li><strong>Configure before shipment:</strong> any practical changes are scoped before purchase and included in the quote</li>
+      <li><strong>Mount and start counting:</strong> connect Ethernet and the sensor input, then view live counts on the device or over the network. Most lines are up and running in under 1 hour.</li>
+    </ol>
+
+    <h2>Customer Proof</h2>
+    <p>
+      Installation photos and customer feedback help show how the system fits on a real production line.
+    </p>
+    <!-- Replace this block with a customer photo and quote when you have them. -->
+    <div class="placeholder" id="customer-proof-placeholder">
+      <p><strong>Customer proof slot</strong></p>
+      <p class="muted">Installation photo and customer quote coming soon.</p>
+    </div>
+
+    <h2 id="demo">Request a Demo</h2>
+    <p>
+      A short Zoom or Google Meet call is the best next step. We can talk through your line,
+      look at the counting process you use today, and walk through the device live.
+    </p>
+    <p>Currently onboarding a limited number of lines to ensure proper setup and support.</p>
+    <div class="note">
+      <p><strong>Typical call length:</strong> 15 to 20 minutes</p>
+      <p><strong>What happens on the call:</strong> review the line, show the device, check whether the standard package fits, and identify any customization before pricing.</p>
+    </div>
+    <!-- Replace this block with your Google Form embed when the demo request form is ready. -->
+    <div class="placeholder" id="form-placeholder">
+      <p><strong>Demo request form slot</strong></p>
+      <p class="muted">Demo request form coming soon.</p>
+    </div>
+
+    <h2>FAQ</h2>
+    <details class="faq-item">
+      <summary>Are sensors included?</summary>
+      <p>Sensors are not included, but many customers already have compatible sensors on hand. If not, we can recommend cost-effective options or work with your existing supplier.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What sensors has it been tested with?</summary>
+      <p>Tested with Keyence PZ-G62CB and PR-G41CBL sensors.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What if my line uses a different sensor?</summary>
+      <p>We can review your sensor setup with you and work out the right way to support it.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does it require cloud access or a subscription?</summary>
+      <p>No. It runs locally on your network and does not require a subscription.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How is it powered and connected?</summary>
+      <p>Ethernet is the recommended default because PoE can simplify power and networking with one cable. Wi-Fi is also available if needed.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can it be repaired or serviced?</summary>
+      <p>Yes. It is built from serviceable off-the-shelf components rather than proprietary locked-down hardware, making replacement and repair straightforward.</p>
+    </details>
   </div>
 
   <footer>
-    <p>&copy; 2025 M3ntor LLC — Built for manufacturers who want control, not complexity.</p>
+    <p>Built by M3ntor LLC. Practical tools for production lines that need better visibility without added software overhead.</p>
   </footer>
 </body>
 </html>
